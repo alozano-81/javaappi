@@ -10,6 +10,7 @@ public class UsuarioViewModel {
     String nombre;
     BigDecimal idRol;
     BigDecimal activo;
-    Character activo2;
+    BigDecimal activo2;
+
 
 }

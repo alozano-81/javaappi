@@ -40,7 +40,7 @@ public class UsersController {
             obj.setIdUsuario((BigDecimal) ver.get(i)[0]);
             obj.setNombre((String) ver.get(i)[1]);
             obj.setIdRol((BigDecimal) ver.get(i)[2]);
-            obj.setActivo2((Character) ver.get(i)[3]);
+            obj.setActivo2((BigDecimal) ver.get(i)[3]);
             lista.add(obj);
         }
         return ResponseEntity.ok(lista);
@@ -181,7 +181,7 @@ public class UsersController {
                 obj.setIdUsuario((BigDecimal) ver.get(i)[0]);
                 obj.setNombre((String) ver.get(i)[1]);
                 obj.setIdRol((BigDecimal) ver.get(i)[2]);
-                obj.setActivo2((Character) ver.get(i)[3]);
+                obj.setActivo2((BigDecimal) ver.get(i)[3]);
                 lista.add(obj);
             }
             return ResponseEntity.ok(lista);
