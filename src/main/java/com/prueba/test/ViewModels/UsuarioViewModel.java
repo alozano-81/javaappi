@@ -12,5 +12,4 @@ public class UsuarioViewModel {
     BigDecimal activo;
     BigDecimal activo2;
 
-
 }
