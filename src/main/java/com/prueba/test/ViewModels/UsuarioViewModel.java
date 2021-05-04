@@ -11,5 +11,6 @@ public class UsuarioViewModel {
     BigDecimal idRol;
     BigDecimal activo;
     BigDecimal activo2;
+    String rolNombre;
 
 }

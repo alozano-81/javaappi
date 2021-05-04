@@ -33,7 +33,7 @@ public class UsersController {
     public ResponseEntity<?> find(@PathVariable("id") final Long id) {
         // repository.findById(id)
         List<Object[]> ver = repository.buscar();
-        System.out.println("Verr; " + ver.get(0)[3].getClass().getSimpleName());
+        System.out.println("Verr; " + ver.get(0)[4].getClass().getSimpleName());
         List<UsuarioViewModel> lista = new ArrayList<UsuarioViewModel>();
         for (int i = 0; i < ver.size(); i++) {
             UsuarioViewModel obj = new UsuarioViewModel();
@@ -41,6 +41,7 @@ public class UsersController {
             obj.setNombre((String) ver.get(i)[1]);
             obj.setIdRol((BigDecimal) ver.get(i)[2]);
             obj.setActivo2((BigDecimal) ver.get(i)[3]);
+            obj.setRolNombre((String) ver.get(i)[4]);
             lista.add(obj);
         }
         return ResponseEntity.ok(lista);
