@@ -1,4 +1,4 @@
---file
+--file mana
 --Usuario
 
 create sequence user_seq
