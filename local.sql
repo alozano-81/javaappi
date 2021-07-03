@@ -34,6 +34,14 @@ where nombre like '%nombre933%' and activo is not null;
 
 
 --Rol
+
+
+create table rol(
+ id_rol number not null,
+ nombre varchar2(100),
+ primary key (id_rol)
+);
+
 select * from system.rol;
 
 create sequence rol_seq
@@ -44,22 +52,22 @@ create sequence rol_seq
   
   
 INSERT INTO SYSTEM.rol (ID_ROL, NOMBRE) 
-VALUES (rol_seq.next, 'ADMINISTRADOR');
+VALUES (rol_seq.nextval, 'ADMINISTRADOR');
 
 INSERT INTO SYSTEM.rol (ID_ROL, NOMBRE) 
-VALUES (rol_seq.next, 'AUDITOR');
+VALUES (rol_seq.nextval, 'AUDITOR');
 
 INSERT INTO SYSTEM.rol (ID_ROL, NOMBRE) 
-VALUES (rol_seq.next, 'AUXILIAR');
+VALUES (rol_seq.nextval, 'AUXILIAR');
 
 
 commit
 rollback
 
---conexión base de datos:
+--conexiÃ³n base de datos:
 --localhost:8083
 
---conexión  angular:
+--conexiÃ³n  angular:
 --localhost:4200
 
 archivo properties, poner en update para generar estructura de base de datos.
