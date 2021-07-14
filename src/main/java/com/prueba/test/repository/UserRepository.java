@@ -17,7 +17,7 @@ import com.prueba.test.model.Usuario;
 @Repository
 public interface UserRepository extends JpaRepository<Usuario, Long> {
 
-        @Query(value = " select u.id_usuario,u.nombre,u.id_rol, u.activo,r.nombre as rol  from system.usuario u inner join "
+        @Query(value = " select u.id_usuario as usuaId,u.nombre,u.id_rol, u.activo,r.nombre as rol  from system.usuario u inner join "
                         + " rol r  on r.id_rol = u.id_rol "
                         + " where activo is not null order by id_usuario asc ", nativeQuery = true)
         List<Object[]> buscar();
@@ -48,11 +48,13 @@ public interface UserRepository extends JpaRepository<Usuario, Long> {
         List<Object[]> validarNombre(@Param("nombre") String nombre);
 
         // consultar por nombre de usuario
-        @Query(value = " select id_usuario,nombre,id_rol, activo from system.usuario where nombre like %:nombreTxt% and activo is not null ", nativeQuery = true)
+        @Query(value = " select id_usuario as usuaId,nombre,id_rol, activo from system.usuario where nombre like %:nombreTxt% and activo is not null ", nativeQuery = true)
         List<Object[]> buscarNombre(@Param("nombreTxt") String nombreTxt);
 
         // buscar roles
         @Query(value = " select id_rol,nombre from system.rol " + " order by nombre asc ", nativeQuery = true)
         List<Object[]> buscarRoles();
+
+        List<Usuario> findByNombre(@Param("nombre") String nombre);
 
 }

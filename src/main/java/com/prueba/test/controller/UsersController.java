@@ -47,6 +47,14 @@ public class UsersController {
         return ResponseEntity.ok(lista);
     }
 
+    /** Buscar por sprinboot */
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
+    public ResponseEntity<?> findAll() {
+        String respuesta = "ok";
+        List<Usuario> lista = repository.findAll();
+        return ResponseEntity.ok(lista);
+    }
+
     // Consultar roles
     @RequestMapping(value = "/get-roles", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getRoles() {
@@ -185,7 +193,8 @@ public class UsersController {
                 obj.setActivo2((BigDecimal) ver.get(i)[3]);
                 lista.add(obj);
             }
-            return ResponseEntity.ok(lista);
+            List<Usuario> lista2 = repository.findByNombre(nombre);
+            return ResponseEntity.ok(lista2);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("error");
         }
