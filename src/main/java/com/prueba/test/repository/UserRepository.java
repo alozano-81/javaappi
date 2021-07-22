@@ -52,7 +52,9 @@ public interface UserRepository extends JpaRepository<Usuario, Long> {
         List<Object[]> buscarNombre(@Param("nombreTxt") String nombreTxt);
 
         // buscar roles
-        @Query(value = " select id_rol,nombre from system.rol " + " order by nombre asc ", nativeQuery = true)
+        @Query(value = " select id_rol,nombre from system.rol  order by nombre asc ", nativeQuery = true)
         List<Object[]> buscarRoles();
+
+        List<Usuario> findAll();
 
 }

@@ -33,7 +33,7 @@ public class UsersController {
     public ResponseEntity<?> find(@PathVariable("id") final Long id) {
         // repository.findById(id)
         List<Object[]> ver = repository.buscar();
-        System.out.println("Verr; " + ver.get(0)[4].getClass().getSimpleName());
+        System.out.println("Verr: " + ver.get(0)[4].getClass().getSimpleName());
         List<UsuarioViewModel> lista = new ArrayList<UsuarioViewModel>();
         for (int i = 0; i < ver.size(); i++) {
             UsuarioViewModel obj = new UsuarioViewModel();
@@ -52,7 +52,7 @@ public class UsersController {
     public ResponseEntity<?> getRoles() {
         // repository.findById(id)
         List<Object[]> ver = repository.buscarRoles();
-        System.out.println("VerrRol; " + ver.get(0)[1].getClass().getSimpleName());
+        System.out.println("VerrRol: " + ver.size());
         List<RolViewModel> lista = new ArrayList<RolViewModel>();
         for (int i = 0; i < ver.size(); i++) {
             RolViewModel obj = new RolViewModel();
